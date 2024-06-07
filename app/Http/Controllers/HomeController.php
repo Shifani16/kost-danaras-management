@@ -9,13 +9,23 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $billsUnpaid = Payment::where('status', 'Belum Bayar')->count();
-        $billsPaid = Payment::where('status', 'Lunas')->count();
+        $user = auth()->user();
 
-        $viewData = $this->loadViewWithUsername();
+        if ($user) {
+            $occId = $user->occ_id;
+
+            $billsUnpaid = Payment::where('occ_id', $occId)->where('status', 'Belum Bayar')->count();
+            $billsPaid = Payment::where('occ_id', $occId)->where('status', 'Lunas')->count();
+
+            $viewData = $this->loadViewWithUsername();
+        } else {
+            $billsUnpaid = 0;
+            $billsPaid = 0;
+            $viewData = [];
+        }
 
         $viewData = array_merge($viewData, compact('billsUnpaid', 'billsPaid'));
-        
+
         return view('users.home', $viewData);
     }
 

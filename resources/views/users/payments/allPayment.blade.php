@@ -41,7 +41,12 @@
                                                 <td>{{ $payment->created_at->format('Y-m-d') }}</td>
                                                 <td>{{ $payment->due_date }}</td>
                                                 <td>{{ $payment->jml_tagihan }}</td>
-                                                <td>{{ $payment->status }}</td>
+                                                <td class="text-right">
+                                                    <span
+                                                        class="{{ $payment->status == 'Belum Bayar' ? 'badge bg-warning-light' : 'badge bg-success-light' }}">
+                                                        {{ $payment->status }}
+                                                    </span>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
