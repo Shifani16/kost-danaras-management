@@ -44,7 +44,7 @@ Route::get('/aturan', [OtherController::class, 'aturan'])->middleware('auth')->n
 Route::get('/metode-pembayaran', [OtherController::class, 'metode'])->middleware('auth')->name('metode-pembayaran');
 
 Route::get('/payment-user', [UserController::class, 'paymentUser'])->middleware('auth')->name('payment.user');
-
+Route::get('/payment-print', [UserController::class, 'print'])->middleware('auth')->name('payment-print');
 
 Route::get('/metode-pembayaran-user', [OtherController::class, 'metodeUser'])->name('metode-pembayaran-user');
 Route::get('/aturan-user', [OtherController::class, 'aturanUser'])->name('aturan-user');

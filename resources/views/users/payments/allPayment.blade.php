@@ -11,7 +11,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <a href="" target="_blank" class="btn btn-primary float-right veiwbutton">Print</a>
+                        <button id="printButton" class="btn btn-primary float-right">Print</button>
                     </div>
                 </div>
             </div>
@@ -58,4 +58,9 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('printButton').addEventListener('click', function() {
+            window.open('{{ route('payment-print') }}', '_blank');
+        });
+    </script>
 @endsection
