@@ -99,9 +99,9 @@
                                 <label>Occupant</label>
                                 <select class="form-control" name="occupant">
                                     <option value="">Select Occupant</option>
-                                    <option>None</option>
+                                    <option value="None">None</option>
                                     @foreach ($occupants as $occupant)
-                                        <option value="{{ $occupant->name}}" {{ $occupant->name == $roomEdit->name ? 'selected' : '' }}>
+                                        <option value="{{ $occupant->name}}" {{ $occupant->name == $roomEdit->occupant ? 'selected' : '' }}>
                                             {{ $occupant->name }}</option>
                                     @endforeach
                                 </select>
